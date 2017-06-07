@@ -6,12 +6,14 @@ class MarsRover
     @x_range = (0..@instructions[0][0].to_i)
     @y_range = (0..@instructions[0][1].to_i)
 
-    # Declare an empty array to hold a hash representing each rover
+    # Declare an array to hold hashes representing each rover
     @rovers = []
 
     self.execute_instructions
     self.format_output
   end
+
+  private
 
   # Parse input into array of instructions and remove all whitespace
   def self.parse_input(input)
@@ -20,6 +22,7 @@ class MarsRover
     instructions.map! { |el| el.gsub(/\s+/, "") }
   end
 
+  # Delegate each line of instructions to appropriate helper method
   def self.execute_instructions
     (1...@instructions.length).each do |i|
       self.define_new_rover(@instructions[i]) if i.odd?
