@@ -12,7 +12,16 @@ def engage_rovers(input)
 
   (1...instructions.length).each do |i|
     line = instructions[i]
-    p line
+    if i.odd?
+      rovers.push({
+        x: line[0],
+        y: line[1],
+        dir: line[2]
+      })
+    else
+      # puts "moves"
+      # p line
+    end
   end
 
   rovers
