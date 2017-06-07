@@ -1,5 +1,6 @@
 def engage_rovers(input)
-  instructions = input.chomp.split("\n\n")
+  instructions = input.chomp.split("\n")
+  instructions.reject! { |el| el == "" }
 end
 
 TEST_INPUT = <<~HEREDOC
