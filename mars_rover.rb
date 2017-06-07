@@ -3,7 +3,9 @@ def engage_rovers(input)
   instructions.reject! { |el| el == "" }
   instructions.map! { |el| el.gsub(/\s+/, "") }
 
-  # x_range = instructions[0]
+  x_range = (0..instructions[0][0].to_i)
+  y_range = (0..instructions[0][1].to_i)
+
   # rovers = []
   instructions
 end
