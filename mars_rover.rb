@@ -18,8 +18,8 @@ def engage_rovers(input)
       # If index is odd, then add new rover to array
       # with specified x, y coordinates and orientation
       rovers.push({
-        x: line[0],
-        y: line[1],
+        x: line[0].to_i,
+        y: line[1].to_i,
         orientation: line[2]
       })
     else
@@ -35,11 +35,19 @@ def engage_rovers(input)
           orientation_map = {"N" => "E", "E" => "S", "S" => "W", "W" => "N"}
           rover[:orientation] = orientation_map[rover[:orientation]]
         when "M"
-          puts "move..."
+          case rover[:orientation]
+          when "N"
+            rover[:y] += 1
+          when "E"
+            rover[:x] += 1
+          when "S"
+            rover[:y] -= 1
+          when "W"
+            rover[:x] -= 1
+          end
         end
       end
-      p rover
-      # rovers.last = rover
+      rovers[rovers.length - 1] = rover
     end
   end
 
