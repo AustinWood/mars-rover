@@ -19,9 +19,21 @@ describe MarsRover do
 
       5 1 E
     HEREDOC
+
     expect(MarsRover.engage_rovers(input)).to eq(output.chomp)
   end
-end
 
-# expected output
-# raises error
+  it "raises an error if the rover goes out of range" do
+    input = <<~HEREDOC
+      5 5
+
+      3 3 E
+
+      MMRMMRMRRMM
+    HEREDOC
+
+    expect do
+      MarsRover.engage_rovers(input)
+    end.to raise_error("The rover has fallen off the plateau!")
+  end
+end
