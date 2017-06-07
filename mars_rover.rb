@@ -10,22 +10,33 @@ def engage_rovers(input)
 
   rovers = []
 
+  # Iterate over each instruction
   (1...instructions.length).each do |i|
     line = instructions[i]
+
     if i.odd?
+      # If index is odd, then add new rover to array
+      # with specified x, y coordinates and orientation
       rovers.push({
         x: line[0],
         y: line[1],
-        dir: line[2]
+        orientation: line[2]
       })
     else
-      # puts "moves"
-      # p line
+      # Otherwise iterate over each character and mutate
+      # the current rover's position and orientation accordingly
+      line.chars.each do |c|
+
+      end
     end
   end
 
   rovers
 end
+
+########################################
+########################################
+########################################
 
 TEST_INPUT = <<~HEREDOC
   5 5
