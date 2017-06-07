@@ -51,7 +51,11 @@ def engage_rovers(input)
     end
   end
 
-  rovers
+  # Create output string in expected format
+  rovers_output = rovers.map do |rover|
+    "#{rover[:x]} #{rover[:y]} #{rover[:orientation]}"
+  end
+  rovers_output.join("\n\n")
 end
 
 ########################################
@@ -70,4 +74,4 @@ TEST_INPUT = <<~HEREDOC
   MMRMMRMRRM
 HEREDOC
 
-p engage_rovers(TEST_INPUT)
+puts engage_rovers(TEST_INPUT)
