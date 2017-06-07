@@ -25,9 +25,21 @@ def engage_rovers(input)
     else
       # Otherwise iterate over each character and mutate
       # the current rover's position and orientation accordingly
+      rover = rovers.last
       line.chars.each do |c|
-
+        case c
+        when "L"
+          orientation_map = {"N" => "W", "W" => "S", "S" => "E", "E" => "N"}
+          rover[:orientation] = orientation_map[rover[:orientation]]
+        when "R"
+          orientation_map = {"N" => "E", "E" => "S", "S" => "W", "W" => "N"}
+          rover[:orientation] = orientation_map[rover[:orientation]]
+        when "M"
+          puts "move..."
+        end
       end
+      p rover
+      # rovers.last = rover
     end
   end
 
