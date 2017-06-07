@@ -1,5 +1,5 @@
 def engage_rovers(input)
-  input
+  instructions = input.chomp.split("\n\n")
 end
 
 TEST_INPUT = <<~HEREDOC
@@ -12,4 +12,4 @@ TEST_INPUT = <<~HEREDOC
   3 3 E
 HEREDOC
 
-puts engage_rovers(TEST_INPUT)
+p engage_rovers(TEST_INPUT)
