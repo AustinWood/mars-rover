@@ -8,6 +8,7 @@ def engage_rovers(input)
   x_range = (0..instructions[0][0].to_i)
   y_range = (0..instructions[0][1].to_i)
 
+  # Declare an empty array to hold a hash representing each rover
   rovers = []
 
   # Iterate over each instruction
@@ -45,6 +46,10 @@ def engage_rovers(input)
           when "W"
             rover[:x] -= 1
           end
+
+          unless x_range.include?(rover[:x]) && y_range.include?(rover[:y])
+            raise "The rover has fallen off the plateau!"
+          end
         end
       end
       rovers[rovers.length - 1] = rover
@@ -75,3 +80,10 @@ TEST_INPUT = <<~HEREDOC
 HEREDOC
 
 puts engage_rovers(TEST_INPUT)
+
+#####################
+# Expected Output:
+#
+# 1 3 N
+#
+# 5 1 E
