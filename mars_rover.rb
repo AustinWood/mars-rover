@@ -1,6 +1,11 @@
 def engage_rovers(input)
   instructions = input.chomp.split("\n")
   instructions.reject! { |el| el == "" }
+  instructions.map! { |el| el.gsub(/\s+/, "") }
+
+  # x_range = instructions[0]
+  # rovers = []
+  instructions
 end
 
 TEST_INPUT = <<~HEREDOC
